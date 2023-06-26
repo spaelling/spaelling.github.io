@@ -3,7 +3,7 @@ name: Update RSS Feed
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 * * * *' # runs every hour
+    - cron:  '0 */4 * * *' # runs every 4 hours
 
 jobs:
   update-feed:
