@@ -1,10 +1,23 @@
 [
     "https://www.youtube.com/feeds/videos.xml?channel_id=UCpIn7ox7j7bH_OFj7tYouOQ",
+    "https://www.youtube.com/feeds/videos.xml?channel_id=UCRAegs4OmMFVGcU9tDBRlKg",
     "https://azure.microsoft.com/en-us/blog/feed/",
     "https://www.thomasmaurer.ch/feed/",
     "https://www.serverless360.com/feed",
     "https://www.azure-heros.com/1/feed",
     "https://medium.com/feed/@jackwesleyroper",
     "https://wmatthyssen.com/feed/",
-    "https://zimmergren.net/feed/rss/"
+    "https://zimmergren.net/feed/rss/",
+    "https://www.rebeladmin.com/feed/",
+    "https://luke.geek.nz/feed.xml",
+    "https://dirteam.com/feed/",
+    "https://samcogan.com/index.xml",
+    "https://aidanfinn.com/?feed=rss2",
+    "https://www.ciraltos.com/feed/",
+    "https://msandbu.org/feed/",
+    "https://robertsmit.wordpress.com/feed/",
+    "https://ourcloudnetwork.com/feed/",
+    "https://gregorsuttie.com/feed/",
+    "https://www.iamashishsharma.com/feeds/posts/default",
+    "https://wedoazure.ie/feed/"
 ]
