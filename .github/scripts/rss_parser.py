@@ -22,6 +22,7 @@ def try_strptime(s, fmts=['%d-%b-%y','%m/%d/%Y']):
 news_items = []
 for feed_url in feeds:
     feed = feedparser.parse(feed_url)
+    feed_title = feed.feed.title
     for entry in feed.entries:
         # Check if 'GMT' is in the date string
         if 'GMT' in entry.published:
@@ -41,6 +42,7 @@ for feed_url in feeds:
             'link': entry.link,
             'published': published_datetime,
             'summary': summary,
+            'feed_title': feed_title
         })
 
 # Sort news items by publication date
