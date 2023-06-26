@@ -9,6 +9,15 @@ from bs4 import BeautifulSoup
 with open('.github/scripts/feeds.json', 'r') as f:
     feeds = json.load(f)
 
+def try_strptime(s, fmts=['%d-%b-%y','%m/%d/%Y']):
+    for fmt in fmts:
+        try:
+            return datetime.strptime(s, fmt)
+        except:
+            continue
+
+    return None # or reraise the ValueError if no format matched, if you prefer
+    
 # Fetch and parse RSS feeds
 news_items = []
 for feed_url in feeds:
@@ -20,11 +29,8 @@ for feed_url in feeds:
             entry.published = entry.published.replace('GMT', '+0000')
 
         # Parse the publication date string into a datetime object
-        try:
-            published_datetime = datetime.strptime(entry.published, '%a, %d %b %Y %H:%M:%S %z')
-        except:
-            # the youtube rss feed has a different format
-            published_datetime = datetime.strptime(entry.published, '%Y-%m-%dT%H:%M:%S%z')
+        published_datetime = try_strptime(entry.published, ['%a, %d %b %Y %H:%M:%S %z','%Y-%m-%dT%H:%M:%S%z','%Y-%m-%dT%H:%M:%S.%f%z'])
+        # published_datetime = datetime.strptime(entry.published, '%a, %d %b %Y %H:%M:%S %z')
 
         summary = entry.summary if 'summary' in entry else ''
         soup = BeautifulSoup(summary, "html.parser")
