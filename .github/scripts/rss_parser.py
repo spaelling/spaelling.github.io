@@ -20,8 +20,11 @@ for feed_url in feeds:
             entry.published = entry.published.replace('GMT', '+0000')
 
         # Parse the publication date string into a datetime object
-        published_datetime = datetime.strptime(
-            entry.published, '%a, %d %b %Y %H:%M:%S %z')
+        try:
+            published_datetime = datetime.strptime(entry.published, '%a, %d %b %Y %H:%M:%S %z')
+        except:
+            # the youtube rss feed has a different format
+            published_datetime = datetime.strptime(entry.published, '%Y-%m-%dT%H:%M:%S%z')
 
         summary = entry.summary if 'summary' in entry else ''
         soup = BeautifulSoup(summary, "html.parser")
