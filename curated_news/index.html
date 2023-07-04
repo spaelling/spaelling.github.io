@@ -24,6 +24,38 @@ Click here for more information.</p>
     <hr>
     
     <div class="item">
+        <h2><a target="_blank" href="https://luke.geek.nz/azure/Call-to-LLM-failed/">Azure OpenAI - Call to LLM failed (luke.geek.nz)</a></h2>
+        <p class="published">Published: Mon, 03 Jul 2023 23:00:00 UTC+12:00</p>
+        <p>I recently, ran into an error  when attempting to use Azure OpenAI and custom data, in the Chat Playground.
+The error I was getting was:
+
+Error
+Cannot connect to host aidocsopenaiaccount.openai.azure.com:443 ssl:default [Name of Service not known]
+Call to LLM failed.
+
+
+As I was calling data, that was indexed by Azure Cognitive Search, I thought the index was corrupted or invalid, but after mulitple index attempts, continuted to have the same error, all other prompts (not using my custom data) succeeded.
+I recreated the Azure OpenAI service, and was able to succesffuly call the custom data, so started to look at the comparisons between the Azure OpenAI instance, that was working and the Azure OpenAI instance that wasn’t.
+I did this by taking a look at the JSON of each Azure OpenAI instance, then did a comparison, and discovered a major difference.
+
+Note: The one on the left is the working one, the one of the right is the failed one.
+The version that was working, had an endpoint of https://*.openai.azure.com , and the version that didn’t work, had a different endpoint: eastus.api.cognitive.microsoft.com.
+You can check the JSON output of a resource, by navigating to it on the Azure Portal, in the Overview Pane, clicking JSON view.
+
+So why would this have been the case?
+When I originally created the Azure OpenAI instance that had this issue, I used PowerShell to create the instance:
+$skuName = "S0"
+$kind = "OpenAI"
+# Create Cognitive Services resource
+New-AzCognitiveServicesAccount -ResourceGroupName $resourceGroupName -Name $accountName -Location $location -SkuName $skuName -Kind $kind
+
+This seemed to call an older API or different schema.
+The version that worked, I created using the Azure Portal - which was correct.
+If you run into the same problem, then recreate your Azure OpenAI instance using the Azure Portal, or one of the currently supported methods: Create a resource and deploy a model using Azure OpenAI, currently (as of the 4th of July 2023) PowerShell is not a supported method of creating an Azure OpenAI instance, until the cmdlets have been updated.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
         <h2><a target="_blank" href="https://www.youtube.com/watch?v=IkEQm6m46Ow">Azure Chaos Studio (John Savill's Technical Training)</a></h2>
         <p class="published">Published: Mon, 03 Jul 2023 08:36:48 UTC</p>
         <p>Introduce chaos engineering into your Azure environment to gain confidence in your solutions resiliency to potential events.
@@ -1495,17 +1527,6 @@ The post Why you should start a Newsletter</p>
         <h2><a target="_blank" href="https://www.youtube.com/watch?v=enlHnWNk8X8">Dual Azure Firewall to handle Public IP On-Premises via Forced Tunnel (Adam Stuart)</a></h2>
         <p class="published">Published: Mon, 13 Mar 2023 15:59:46 UTC</p>
         <p></p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://luke.geek.nz/azure/azure-budget-filters-a-key-tool-for-effective-cloud-cost-management/">Azure Budget Filters: A Key Tool for Effective Cloud Cost Management (luke.geek.nz)</a></h2>
-        <p class="published">Published: Mon, 13 Mar 2023 00:00:00 UTC+13:00</p>
-        <p>Azure Budgets are a vital tool that can be used to keep on top of your Cloud financial management (FinOps) Microsoft Azure platform potential and actual costs.
-The most effective Azure Budgets - are the ones that you use!
-
-
-In the realm of Cost Management, budgets play a pivotal role in facilitating the planning and implementation of organizational accountability</p>
     </div>
     <hr>
     
