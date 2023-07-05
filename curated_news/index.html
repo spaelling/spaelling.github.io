@@ -12,6 +12,165 @@
 <body>
     
     <div class="item">
+        <h2><a target="_blank" href="https://luke.geek.nz/azure/Bring-Your-Data-to-Life-with-Azure-OpenAI/">Bring Your Data to Life with Azure OpenAI (luke.geek.nz)</a></h2>
+        <p class="published">Published: Tue, 04 Jul 2023 14:15:00 UTC+12:00</p>
+        <p>Today, we will look at using Azure OpenAI and ‘Bring Your Data’ to allow recent documentation to be referenced and bring life (and relevance) to your data.
+
+The example we are going to use today is the Microsoft Learn documentation for Microsoft Azure.
+Our scenario is this:
+
+We would like to use ChatGPT functionality to query up-to-date information on Microsoft Azure; in this example, we will look for information on Azure Elastic SAN (which was added in late 2022).
+
+When querying ChatGPT for Azure Elastic SAN, we get the following:
+
+Just like the prompt states, ChatGPT only has data up to September 2021 and isn’t aware of Elastic SAN (or any other changes/updates or new (or retired) services after this date).
+So let us use the Azure OpenAI and bring in outside data (ground data), in this case, the Azure document library, to overlay on top of the GPT models, giving the illusion the model is aware of the data.
+To do this, we will leverage native ‘Bring Your Own Data’ functionality, now in Azure OpenAI - this is in Public Preview as of 04/07/2023.
+To be clear, I don’t expect you to start downloading from GitHub; this is just an example I have used to add your data</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://www.iamashishsharma.com/2023/07/general-availability-azure-archive.html">General availability: Azure Archive Storage now available in Sweden Central (Ashish Sharma)</a></h2>
+        <p class="published">Published: Mon, 03 Jul 2023 10:23:00 UTC-07:00</p>
+        <p>Azure service updates
+
+General availability: Azure Archive Storage now available in Sweden Central
+Reduce spending by storing rarely accessed data to Azure Archive Storage, now in new regions.
+
+Click here for more information.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://luke.geek.nz/azure/Call-to-LLM-failed/">Azure OpenAI - Call to LLM failed (luke.geek.nz)</a></h2>
+        <p class="published">Published: Mon, 03 Jul 2023 23:00:00 UTC+12:00</p>
+        <p>I recently, ran into an error  when attempting to use Azure OpenAI and custom data, in the Chat Playground.
+The error I was getting was:
+
+Error
+Cannot connect to host aidocsopenaiaccount.openai.azure.com:443 ssl:default [Name of Service not known]
+Call to LLM failed.
+
+
+As I was calling data, that was indexed by Azure Cognitive Search, I thought the index was corrupted or invalid, but after mulitple index attempts, continuted to have the same error, all other prompts (not using my custom data) succeeded.
+I recreated the Azure OpenAI service, and was able to succesffuly call the custom data, so started to look at the comparisons between the Azure OpenAI instance, that was working and the Azure OpenAI instance that wasn’t.
+I did this by taking a look at the JSON of each Azure OpenAI instance, then did a comparison, and discovered a major difference.
+
+Note: The one on the left is the working one, the one of the right is the failed one.
+The version that was working, had an endpoint of https://*.openai.azure.com , and the version that didn’t work, had a different endpoint: eastus.api.cognitive.microsoft.com.
+You can check the JSON output of a resource, by navigating to it on the Azure Portal, in the Overview Pane, clicking JSON view.
+
+So why would this have been the case?
+When I originally created the Azure OpenAI instance that had this issue, I used PowerShell to create the instance:
+$skuName = "S0"
+$kind = "OpenAI"
+# Create Cognitive Services resource
+New-AzCognitiveServicesAccount -ResourceGroupName $resourceGroupName -Name $accountName -Location $location -SkuName $skuName -Kind $kind
+
+This seemed to call an older API or different schema.
+The version that worked, I created using the Azure Portal - which was correct.
+If you run into the same problem, then recreate your Azure OpenAI instance using the Azure Portal, or one of the currently supported methods: Create a resource and deploy a model using Azure OpenAI, currently (as of the 4th of July 2023) PowerShell is not a supported method of creating an Azure OpenAI instance, until the cmdlets have been updated.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://www.youtube.com/watch?v=IkEQm6m46Ow">Azure Chaos Studio (John Savill's Technical Training)</a></h2>
+        <p class="published">Published: Mon, 03 Jul 2023 08:36:48 UTC</p>
+        <p>Introduce chaos engineering into your Azure environment to gain confidence in your solutions resiliency to potential events.
+
+🔎 Looking for content on a particular topic? Search the channel</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://ourcloudnetwork.com/how-to-use-connect-mggraph-identity-with-managed-identities/?utm_source=rss&utm_medium=rss&utm_campaign=how-to-use-connect-mggraph-identity-with-managed-identities">How to use Managed Identities with Microsoft Graph PowerShell (Our Cloud Network)</a></h2>
+        <p class="published">Published: Mon, 03 Jul 2023 08:24:53 UTC</p>
+        <p>Learn how to use the Connect-MgGraph cmdlet with the -Identity parameter to connect with System and user-assigned managed identities.
+The post How to use Managed Identities with Microsoft Graph PowerShell appeared first on Our Cloud Network.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://www.ciraltos.com/download-all-the-azure-icons-for-free/">Download all the Azure Icons for Free! (Ciraltos)</a></h2>
+        <p class="published">Published: Sun, 02 Jul 2023 15:00:26 UTC</p>
+        <p>Nothing is more frustrating than wasting time searching for the right icon when creating diagrams, presentations, or other documentation.  Microsoft offers a bundle of icons, but that gets out of date quickly and isn’t easy to search.  In this video, we go over the Amazing Icon Downloader Browser extension that allows us to download .svg …
+  Download all the Azure Icons for Free! Read More »
+The post Download all the Azure Icons for Free! appeared first on Ciraltos.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://msandbu.org/deploy-azure-openai-using-terraform-with-private-endpoint/">Deploy Azure OpenAI using Terraform with Private Endpoint (msandbu.org)</a></h2>
+        <p class="published">Published: Fri, 30 Jun 2023 17:39:25 UTC</p>
+        <p>Deploy Azure OpenAI using Terraform with Private Endpoint
+The post Deploy Azure OpenAI using Terraform with Private Endpoint appeared first on msandbu.org.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://www.youtube.com/watch?v=O7p1Jse1W8c">Azure Infrastructure Weekly Update - 30th June 2023 (John Savill's Technical Training)</a></h2>
+        <p class="published">Published: Fri, 30 Jun 2023 13:05:39 UTC</p>
+        <p>Another quick update as we celebrate end of Microsoft FY 23 :D
+
+🔎 Looking for content on a particular topic? Search the channel</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://www.iamashishsharma.com/2023/06/public-preview-default-rule-set-21-for.html">Public Preview: Default Rule Set 2.1 for Regional WAF with Application Gateway (Ashish Sharma)</a></h2>
+        <p class="published">Published: Thu, 29 Jun 2023 12:23:00 UTC-07:00</p>
+        <p>Azure service updates
+
+Public Preview: Default Rule Set 2.1 for Regional WAF with Application Gateway
+Increase your security posture and reduce false positives with Default Rule Set 2.1, now in preview on Azure's regional Web Application Firewall (WAF) with Application Gateway.
+
+Click here for more information.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://www.thomasmaurer.ch/2023/06/assess-your-cloud-journey-using-the-cloud-adoption-strategy-evaluator/">Assess your cloud journey using the Cloud Adoption Strategy Evaluator (Thomas Maurer)</a></h2>
+        <p class="published">Published: Thu, 29 Jun 2023 07:24:25 UTC</p>
+        <p>If you’re considering adopting cloud services for your organization, you might be wondering how to plan and execute your cloud strategy effectively</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://www.youtube.com/watch?v=eWK_a0lGCCg">Playing with Bing Chat (John Savill's Technical Training)</a></h2>
+        <p class="published">Published: Wed, 28 Jun 2023 12:23:24 UTC</p>
+        <p>Quick play with Bing Chat, how it works and some tips on use.
+
+🔎 Looking for content on a particular topic? Search the channel</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://blog.cloudtrooper.net/2023/06/28/monitoring-azure-networks-with-alerts/">Monitoring Azure Networks with Alerts (Cloudtrooper)</a></h2>
+        <p class="published">Published: Wed, 28 Jun 2023 11:18:17 UTC</p>
+        <p>Monitoring is one of those underrated disciplines: everybody tells you to do it, but nobody tells you exactly how</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://aidanfinn.com/?p=22922">Azure WAF and False Positives (Aidan Finn, IT Pro)</a></h2>
+        <p class="published">Published: Wed, 28 Jun 2023 10:17:33 UTC</p>
+        <p>This post will explain how to override false positives in the (network) Azure Web Application Firewall (WAF), without compromising security, using one of four methods in combination with a tiered WAF Policy architecture: False Positives A WAF is a rather simple solution, attempting to inspect L7 (application layer) traffic and intercept attacks such as protocol … Continue reading "Azure WAF and False Positives"
+The post Azure WAF and False Positives first appeared on Aidan Finn, IT Pro.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://www.iamashishsharma.com/2023/06/public-preview-azure-openai-service-on.html">Public Preview: Azure OpenAI Service On Your Data (Ashish Sharma)</a></h2>
+        <p class="published">Published: Tue, 27 Jun 2023 11:23:00 UTC-07:00</p>
+        <p>Azure service updates
+
+Public Preview: Azure OpenAI Service On Your Data
+Introducing Azure OpenAI Service on your data in public preview, which unlocks the power of OpenAI models like ChatGPT and GPT-4 with your own data</p>
+    </div>
+    <hr>
+    
+    <div class="item">
         <h2><a target="_blank" href="https://www.iamashishsharma.com/2023/06/preview-updates-azure-elastic-san.html">Preview Updates: Azure Elastic SAN Public Preview improvements (Ashish Sharma)</a></h2>
         <p class="published">Published: Tue, 27 Jun 2023 10:23:00 UTC-07:00</p>
         <p>Azure service updates
@@ -272,9 +431,23 @@ Click here for more information.</p>
     <hr>
     
     <div class="item">
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/mercedes-benz-enhances-drivers-experience-with-azure-openai-service/">Mercedes-Benz enhances drivers’ experience with Azure OpenAI Service (Azure Blog)</a></h2>
+        <p class="published">Published: Thu, 15 Jun 2023 14:10:00 UTC</p>
+        <p>Mercedes-Benz announced they are integrating ChatGPT via Azure OpenAI Service to transform the in-car experience for drivers</p>
+    </div>
+    <hr>
+    
+    <div class="item">
         <h2><a target="_blank" href="https://www.thomasmaurer.ch/2023/06/windows-server-summit-2022-modernize-your-apps-with-windows-containers-and-aks/">Windows Server Summit 2022: Modernize your Apps with Windows Containers and AKS (Thomas Maurer)</a></h2>
         <p class="published">Published: Thu, 15 Jun 2023 06:34:00 UTC</p>
         <p>Rick Claus created a director’s cut of the 2022 Windows Server Summit</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/azure-openai-service-10-ways-generative-ai-is-transforming-businesses/">Azure OpenAI Service: 10 ways generative AI is transforming businesses (Azure Blog)</a></h2>
+        <p class="published">Published: Wed, 14 Jun 2023 20:00:00 UTC</p>
+        <p>From generating realistic images and videos to enhancing customer experiences, generative AI has proven to be a versatile tool across various industries</p>
     </div>
     <hr>
     
@@ -283,6 +456,14 @@ Click here for more information.</p>
         <p class="published">Published: Wed, 14 Jun 2023 15:56:47 UTC</p>
         <p>Learn how to update the default (preferred) MFA method for all users in Microsoft 365 using Microsoft Graph PowerShell.
 The post Update Default MFA Methods with Microsoft Graph PowerShell appeared first on Our Cloud Network.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/deploy-a-holistic-view-of-your-workload-with-azure-native-dynatrace-service/">Deploy a holistic view of your workload with Azure Native Dynatrace Service (Azure Blog)</a></h2>
+        <p class="published">Published: Wed, 14 Jun 2023 15:00:00 UTC</p>
+        <p>Azure Native Dynatrace Service provides a native integrated experience for monitoring Azure workloads where you can create and manage Dynatrace environments from Azure.
+The post Deploy a holistic view of your workload with Azure Native Dynatrace Service appeared first on Azure Blog.</p>
     </div>
     <hr>
     
@@ -307,6 +488,13 @@ Announcing the new Azure Container Registry libraries
 We’re pleased to announce that version 1.1.0 of the Azure Container Registry (ACR) libraries for .NET, Java, JavaScript/TypeScript, and Python are now generally available.
 
 Click here for more information.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/azure-hbv4-and-hx-series-vms-for-hpc-now-generally-available/">Azure HBv4 and HX Series VMs for HPC now generally available (Azure Blog)</a></h2>
+        <p class="published">Published: Tue, 13 Jun 2023 18:00:00 UTC</p>
+        <p>With the general availability of Azure HBv4 and HX series virtual machines today, Microsoft has integrated the latest 4th Gen AMD EPYC™ processors with AMD 3D V-Cache™ technology</p>
     </div>
     <hr>
     
@@ -369,6 +557,13 @@ Azure OpenAI Service is now available in the UK South region</p>
     <hr>
     
     <div class="item">
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/understanding-service-health-communications-for-azure-vulnerabilities/">Understanding Service Health communications for Azure vulnerabilities (Azure Blog)</a></h2>
+        <p class="published">Published: Tue, 13 Jun 2023 15:00:00 UTC</p>
+        <p>Microsoft values our ongoing collaboration with the security research community to not only identify vulnerabilities in our products and services but also to provide a more consistent and reliable experience for customers</p>
+    </div>
+    <hr>
+    
+    <div class="item">
         <h2><a target="_blank" href="https://www.youtube.com/watch?v=7zT_T5TtZqs">Trusting Your Co-Pilot (John Savill's Technical Training)</a></h2>
         <p class="published">Published: Tue, 13 Jun 2023 12:29:52 UTC</p>
         <p>Co-Pilots are everywhere so in this video I wanted to explore why we can trust what they do with our information AND the accuracy of the responses.
@@ -415,6 +610,13 @@ Click here for more information.</p>
 
 Generally available: Azure OpenAI Service in UK South
 Azure OpenAI Service is now available in the UK South region</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/microsoft-commercial-marketplace-improves-b2b-commerce/">Microsoft commercial marketplace improves B2B commerce (Azure Blog)</a></h2>
+        <p class="published">Published: Mon, 12 Jun 2023 17:00:00 UTC</p>
+        <p>New study looks at the benefits of the Microsoft commercial marketplace</p>
     </div>
     <hr>
     
@@ -482,6 +684,13 @@ Click here for more information.</p>
     <hr>
     
     <div class="item">
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/implement-digital-transformation-with-the-azure-data-manager-for-energy-developer-tier/">Implement digital transformation with the Azure Data Manager for Energy Developer tier (Azure Blog)</a></h2>
+        <p class="published">Published: Thu, 08 Jun 2023 17:00:00 UTC</p>
+        <p>With this addition, Azure Data Manager for Energy is now available in two tiers: Standard and Developer</p>
+    </div>
+    <hr>
+    
+    <div class="item">
         <h2><a target="_blank" href="https://www.iamashishsharma.com/2023/06/announcing-new-azure-container-registry.html">Announcing the new Azure Container Registry libraries (Ashish Sharma)</a></h2>
         <p class="published">Published: Thu, 08 Jun 2023 09:23:00 UTC-07:00</p>
         <p>Azure service updates
@@ -494,6 +703,14 @@ Click here for more information.</p>
     <hr>
     
     <div class="item">
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/microsoft-is-a-leader-in-the-2023-gartner-magic-quadrant-for-cloud-ai-developer-services/">Microsoft is a Leader in the 2023 Gartner® Magic Quadrant™ for Cloud AI Developer Services (Azure Blog)</a></h2>
+        <p class="published">Published: Thu, 08 Jun 2023 15:00:00 UTC</p>
+        <p>We are excited to announce that Microsoft is recognized as a Leader for the 4th year in a row in the Gartner Magic Quadrant for Cloud AI Developer Services and are especially proud to be placed furthest for our Completeness of Vision. 
+The post Microsoft is a Leader in the 2023 Gartner® Magic Quadrant™ for Cloud AI Developer Services appeared first on Azure Blog.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
         <h2><a target="_blank" href="https://ourcloudnetwork.com/how-to-map-a-network-drive-using-microsoft-intune/?utm_source=rss&utm_medium=rss&utm_campaign=how-to-map-a-network-drive-using-microsoft-intune">How to Map a Network Drive Using Microsoft Intune (Our Cloud Network)</a></h2>
         <p class="published">Published: Thu, 08 Jun 2023 04:08:36 UTC</p>
         <p>Learn how to map a network drive (or mapped drive) using Microsoft Intune with custom ADMX Administrative Templates.
@@ -502,14 +719,10 @@ The post How to Map a Network Drive Using Microsoft Intune appeared first on Our
     <hr>
     
     <div class="item">
-        <h2><a target="_blank" href="https://www.iamashishsharma.com/2023/06/public-preview-azure-container.html">Public preview: Azure Container Instances(ACI) Spot containers (Ashish Sharma)</a></h2>
-        <p class="published">Published: Wed, 07 Jun 2023 10:23:00 UTC-07:00</p>
-        <p>Azure service updates
-
-Public preview: Azure Container Instances(ACI) Spot containers
-You can now take advantage of unused Azure computing with Azure Container Instances (ACI)
-
-Click here for more information.</p>
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/unlock-new-insights-with-azure-openai-service-for-government/">Unlock new insights with Azure OpenAI Service for government (Azure Blog)</a></h2>
+        <p class="published">Published: Wed, 07 Jun 2023 15:00:00 UTC</p>
+        <p>You now have the opportunity to use Microsoft Azure OpenAI Service through purpose-built, AI-optimized infrastructure to securely access the large language models in the commercial environment from Azure Government.
+The post Unlock new insights with Azure OpenAI Service for government appeared first on Azure Blog.</p>
     </div>
     <hr>
     
@@ -538,16 +751,6 @@ The post Explore the latest features for Datadog—An Azure Native ISV Service a
     <hr>
     
     <div class="item">
-        <h2><a target="_blank" href="https://www.iamashishsharma.com/2023/06/general-availability-new-kql-function.html">General availability: New KQL function to enrich your data analysis with geographic context (Ashish Sharma)</a></h2>
-        <p class="published">Published: Tue, 06 Jun 2023 10:22:00 UTC-07:00</p>
-        <p>Azure service updates
-
-General availability: New KQL function to enrich your data analysis with geographic context
-KQL introduces a new function to retrieve country, state, city, and coordinates from IP addresses using GeoLite2 data</p>
-    </div>
-    <hr>
-    
-    <div class="item">
         <h2><a target="_blank" href="https://www.thomasmaurer.ch/2023/06/how-to-move-files-with-powershell/">How to Move Files with PowerShell (Thomas Maurer)</a></h2>
         <p class="published">Published: Tue, 06 Jun 2023 05:48:00 UTC</p>
         <p>PowerShell is a powerful scripting language that can help you automate various tasks on your Windows and Linux system</p>
@@ -555,28 +758,9 @@ KQL introduces a new function to retrieve country, state, city, and coordinates 
     <hr>
     
     <div class="item">
-        <h2><a target="_blank" href="https://www.iamashishsharma.com/2023/06/public-preview-azure-chaos-studio-is.html">Public Preview: Azure Chaos Studio is now available in West US 2 region (Ashish Sharma)</a></h2>
-        <p class="published">Published: Mon, 05 Jun 2023 12:23:00 UTC-07:00</p>
-        <p>Azure service updates
-
-Public Preview: Azure Chaos Studio is now available in West US 2 region
-Azure Chaos Studio is now available in West US 2 region.
-
-Click here for more information.</p>
-    </div>
-    <hr>
-    
-    <div class="item">
         <h2><a target="_blank" href="https://gregorsuttie.com/2023/06/05/azure-vm-extensions-part-2-customscriptextension/">Azure VM Extensions: Part 2 CustomScriptExtension (Azure Greg)</a></h2>
         <p class="published">Published: Mon, 05 Jun 2023 18:19:58 UTC</p>
         <p>This blog post covers some of the battles I have had trying to install some software onto a VM within Azure</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/azure-virtual-wan-now-supports-full-mesh-secure-hub-connectivity/">Azure Virtual WAN now supports full mesh secure hub connectivity (Azure Blog)</a></h2>
-        <p class="published">Published: Mon, 05 Jun 2023 15:00:00 UTC</p>
-        <p>Azure Virtual WAN (vWAN), networking-as-a-service, brings networking, security, and routing functionalities together to simplify networking in Azure</p>
     </div>
     <hr>
     
@@ -625,20 +809,6 @@ The post How to Download Intune Scripts With Microsoft Graph PowerShell appeared
         <h2><a target="_blank" href="https://dirteam.com/sander/2023/06/02/eight-things-you-should-know-about-azure-ad-cross-tenant-synchronization/">Eight things you should know about Azure AD Cross-tenant Synchronization (The DirTeam.com / ActiveDir.org Weblogs)</a></h2>
         <p class="published">Published: Fri, 02 Jun 2023 11:41:09 UTC</p>
         <p>Collaboration helps organizations increase their effectiveness in their (supply) chain by allowing people in other organization to work together in shared functionality</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/increase-gaming-performance-with-ngads-v620-series-virtual-machines/">Increase gaming performance with NGads V620-series virtual machines (Azure Blog)</a></h2>
-        <p class="published">Published: Thu, 01 Jun 2023 16:00:00 UTC</p>
-        <p>The NGads V620 series has GPU, CPU, and memory resources that are balanced to generate and stream high-quality graphics for a high-performance, interactive gaming experience hosted in Azure</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/microsoft-cost-management-updates-may-2023/">Microsoft Cost Management updates—May 2023 (Azure Blog)</a></h2>
-        <p class="published">Published: Wed, 31 May 2023 15:00:00 UTC</p>
-        <p>May is all about cost optimization! From customizable right-sizing recommendations in Advisor to many updates to pricing experiences and the addition of cost recommendations in Azure Resource Graph for Azure Gov and Azure China clouds</p>
     </div>
     <hr>
     
@@ -740,44 +910,11 @@ The post How to Use -Filter with Microsoft Graph PowerShell appeared first on Ou
     <hr>
     
     <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/build-next-generation-ai-powered-applications-on-microsoft-azure/">Build next-generation, AI-powered applications on Microsoft Azure (Azure Blog)</a></h2>
-        <p class="published">Published: Tue, 23 May 2023 15:00:00 UTC</p>
-        <p>Welcome to Microsoft Build 2023—the event where we celebrate the developer community</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/introducing-microsoft-fabric-data-analytics-for-the-era-of-ai/">Introducing Microsoft Fabric: Data analytics for the era of AI (Azure Blog)</a></h2>
-        <p class="published">Published: Tue, 23 May 2023 15:00:00 UTC</p>
-        <p>Today we are unveiling Microsoft Fabric—an end-to-end, unified analytics platform that brings together all the data and analytics tools that organizations need.
-The post Introducing Microsoft Fabric: Data analytics for the era of AI appeared first on Azure Blog.</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://www.youtube.com/watch?v=15fg5-I3CI4">Using Winget Package Manager in Windows (John Savill's Technical Training)</a></h2>
-        <p class="published">Published: Mon, 22 May 2023 12:39:29 UTC</p>
-        <p>A dive into Winget as the ultimate way to install your applications on Windows.
-
-🔎 Looking for content on a particular topic? Search the channel</p>
-    </div>
-    <hr>
-    
-    <div class="item">
         <h2><a target="_blank" href="https://www.ciraltos.com/know-your-azure-ad-device-identities-azure-ad-registered-azure-ad-joined-and-hybrid-azure-ad-joined/">Know your Azure AD Device Identities! Azure AD Registered, Azure AD Joined, and Hybrid Azure AD Joined (Ciraltos)</a></h2>
         <p class="published">Published: Sun, 21 May 2023 15:17:27 UTC</p>
         <p>Devices, like users and groups, have identities in Azure AD.  We can use these identities to manage the devices.  This video goes over the three types of Azure AD device identities; Azure AD Registered, Azure AD Joined and Hybrid Azure AD Joined.  We look at how the device identities are crated and management options we …
   Know your Azure AD Device Identities! Azure AD Registered, Azure AD Joined, and Hybrid Azure AD Joined Read More »
 The post Know your Azure AD Device Identities! Azure AD Registered, Azure AD Joined, and Hybrid Azure AD Joined appeared first on Ciraltos.</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://www.youtube.com/watch?v=A8UI0OwEvoc">Azure Infrastructure Weekly Update - 19th May 2023 (John Savill's Technical Training)</a></h2>
-        <p class="published">Published: Fri, 19 May 2023 13:13:53 UTC</p>
-        <p>Quite a lot of updates this week, yay!
-
-🔎 Looking for content on a particular topic? Search the channel</p>
     </div>
     <hr>
     
@@ -796,13 +933,6 @@ The post Know your Azure AD Device Identities! Azure AD Registered, Azure AD Joi
     <hr>
     
     <div class="item">
-        <h2><a target="_blank" href="https://www.youtube.com/watch?v=KtINzLDZnL0">200K Ask Me Anything YouTube Live Stream (John Savill's Technical Training)</a></h2>
-        <p class="published">Published: Wed, 17 May 2023 17:09:58 UTC</p>
-        <p>An AMA to celebrate hitting 200,000 subscribers</p>
-    </div>
-    <hr>
-    
-    <div class="item">
         <h2><a target="_blank" href="https://dirteam.com/sander/2023/05/17/a-recent-microsoft-change-might-prompt-you-to-reconsider-guest-access-policies/">A recent Microsoft change might prompt you to reconsider guest access policies (The DirTeam.com / ActiveDir.org Weblogs)</a></h2>
         <p class="published">Published: Wed, 17 May 2023 09:59:39 UTC</p>
         <p>While Active Directory and AD FS admins may feel that they are on top of things as new Operating Systems versions only typically appear every 3 years</p>
@@ -813,14 +943,6 @@ The post Know your Azure AD Device Identities! Azure AD Registered, Azure AD Joi
         <h2><a target="_blank" href="https://www.azure-heros.com/blog/azure-resource-graph-in-a-simple-way">Azure Resource Graph in a simple way! (AZURE HEROES - Blog)</a></h2>
         <p class="published">Published: Tue, 16 May 2023 21:00:00 UTC</p>
         <p>Azure Resource Graph is a service in Azure that is designed to extend Azure Resource Management by allowing you to query across Azure subscriptions quickly and efficiently</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/the-synergy-of-market-leaders-exploring-microsoft-and-saps-game-changing-collaboration/">The synergy of market leaders: Exploring Microsoft and SAP’s game-changing collaboration (Azure Blog)</a></h2>
-        <p class="published">Published: Tue, 16 May 2023 15:00:00 UTC</p>
-        <p>The partnership between Microsoft and SAP has enabled customers to accelerate their business transformation, improve resilience, minimize downtime, and prepare for more rapid growth.
-The post The synergy of market leaders: Exploring Microsoft and SAP’s game-changing collaboration appeared first on Azure Blog.</p>
     </div>
     <hr>
     
@@ -848,21 +970,6 @@ The post Export All Admin Role Memberships in Azure AD With Powershell appeared 
     <hr>
     
     <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/transforming-containerized-applications-with-azure-container-storage-now-in-preview/">Transforming containerized applications with Azure Container Storage—now in preview (Azure Blog)</a></h2>
-        <p class="published">Published: Mon, 15 May 2023 17:00:00 UTC</p>
-        <p>Today, we are excited to announce the preview of Azure Container Storage, the industry’s first platform-managed container native storage service in the public cloud, providing end to end storage management and orchestration for stateful applications to run efficiently at scale on Azure.
-The post Transforming containerized applications with Azure Container Storage—now in preview appeared first on Azure Blog.</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/optimize-performance-and-strengthen-security-with-policy-analytics-for-azure-firewall/">Optimize performance and strengthen security with Policy Analytics for Azure Firewall (Azure Blog)</a></h2>
-        <p class="published">Published: Mon, 15 May 2023 15:00:00 UTC</p>
-        <p>Network security policies are a critical component of modern IT environments, especially with the increasing adoption of cloud workloads</p>
-    </div>
-    <hr>
-    
-    <div class="item">
         <h2><a target="_blank" href="https://ourcloudnetwork.com/how-to-export-all-azuread-pim-roles-with-microsoft-graph-powershell/?utm_source=rss&utm_medium=rss&utm_campaign=how-to-export-all-azuread-pim-roles-with-microsoft-graph-powershell">How to Export All AzureAD PIM Roles with Microsoft Graph PowerShell (Our Cloud Network)</a></h2>
         <p class="published">Published: Sun, 14 May 2023 14:59:47 UTC</p>
         <p>Learn how to export all Assigned and eligible Azure AD PIM roles to a CSV using Microsoft Graph PowerShell.
@@ -876,21 +983,6 @@ The post How to Export All AzureAD PIM Roles with Microsoft Graph PowerShell app
         <p>Do you use MFA to protect your Global Admin and other privileged accounts?  In most cases this is best practice, but what do you do if MFA is down?  If you use your cell phone for MFA, what happens if the phone is lost, or the cellular network is down?  That’s what Azur emergency access …
   Don’t get Locked Out of Azure AD! Use Emergency Access Accounts Read More »
 The post Don’t get Locked Out of Azure AD! Use Emergency Access Accounts appeared first on Ciraltos.</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://ourcloudnetwork.com/how-to-secure-access-to-microsoft-graph-powershell/?utm_source=rss&utm_medium=rss&utm_campaign=how-to-secure-access-to-microsoft-graph-powershell">How to Secure Access To Microsoft Graph PowerShell (Our Cloud Network)</a></h2>
-        <p class="published">Published: Fri, 12 May 2023 05:39:20 UTC</p>
-        <p>Learn how to secure access to the Microsoft Graph PowerShell tools in Azure Active Directory to increase tenant security.
-The post How to Secure Access To Microsoft Graph PowerShell appeared first on Our Cloud Network.</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/microsoft-build-2023-innovation-through-microsoft-commercial-marketplace/">Microsoft Build 2023: Innovation through Microsoft commercial marketplace (Azure Blog)</a></h2>
-        <p class="published">Published: Thu, 11 May 2023 17:00:00 UTC</p>
-        <p>With Azure’s enterprise-grade security and built-in responsible AI, the rate of innovation is growing exponentially</p>
     </div>
     <hr>
     
@@ -1142,13 +1234,6 @@ When the script is ran, a new profile will be created for Microsoft Teams, and t
     <hr>
     
     <div class="item">
-        <h2><a target="_blank" href="https://www.thomasmaurer.ch/2023/04/honored-to-be-listed-in-the-onalytica-whos-who-in-cloud-top-50-influencers-2023/">Honored To Be Listed in the Onalytica Who’s Who in Cloud? Top 50 Influencers 2023 (Thomas Maurer)</a></h2>
-        <p class="published">Published: Wed, 26 Apr 2023 09:37:35 UTC</p>
-        <p>I am thrilled and humbled to share with you that I have been included in the OnAlytica “Who’s Who in Cloud? Top 50 Influencers to Follow” list for 2023</p>
-    </div>
-    <hr>
-    
-    <div class="item">
         <h2><a target="_blank" href="https://msandbu.org/how-does-microsoft-365-copilot-work/">How does Microsoft 365 Copilot work? (msandbu.org)</a></h2>
         <p class="published">Published: Tue, 25 Apr 2023 17:02:21 UTC</p>
         <p>Recently Microsoft announced that they will be providing a new feature for Microsoft called “Copilot” which you can read more about here –> Introducing Microsoft 365 Copilot – your copilot for work – The Official Microsoft Blog</p>
@@ -1166,13 +1251,6 @@ When the script is ran, a new profile will be created for Microsoft Teams, and t
         <h2><a target="_blank" href="https://faun.pub/terraform-for-loop-6c706f625f8f?source=rss-f8c0d8b1b817------2">Terraform for loop (Stories by Jack Roper on Medium)</a></h2>
         <p class="published">Published: Mon, 24 Apr 2023 07:02:44 UTC</p>
         <p>In this article, we will look at how we can handle a ‘for loop’ in Terraform</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://www.ciraltos.com/azure-global-admin-is-not-a-global-admin/">Azure Global Admin is not a “Global Admin” (Ciraltos)</a></h2>
-        <p class="published">Published: Sun, 23 Apr 2023 12:58:21 UTC</p>
-        <p>Understanding Role Based Access Control (RBAC) roles and scopes is important to managing Azure cloud services.  This video goes over a common misunderstanding of the functionality of the “Global Admin” RBAC role in Azure AD and how it relates to Azure management groups and subscriptions</p>
     </div>
     <hr>
     
@@ -1404,13 +1482,6 @@ The post Securing Azure Kubernetes Services appeared first on msandbu.org.</p>
     <hr>
     
     <div class="item">
-        <h2><a target="_blank" href="https://msandbu.org/cloudflare-zero-trust-a-good-alternative-to-provide-ztna/">Cloudflare Zero-Trust – A good alternative to provide ZTNA? (msandbu.org)</a></h2>
-        <p class="published">Published: Mon, 20 Mar 2023 17:45:00 UTC</p>
-        <p>As cyber threats continue to evolve, traditional security measures are no longer sufficient to protect networks and data</p>
-    </div>
-    <hr>
-    
-    <div class="item">
         <h2><a target="_blank" href="https://wmatthyssen.com/2023/03/17/azure-spring-clean-2023-lets-optimize-your-azure-backup-costsazure-spring-clean-2023/">Azure Spring Clean 2023: Let’s optimize your Azure Backup costs (Wim Matthyssen)</a></h2>
         <p class="published">Published: Fri, 17 Mar 2023 07:10:00 UTC</p>
         <p>In this blog post, I will explore various ways to optimize your Azure Backup costs</p>
@@ -1428,16 +1499,6 @@ The post Securing Azure Kubernetes Services appeared first on msandbu.org.</p>
         <h2><a target="_blank" href="https://wedoazure.ie/2023/03/15/exploring-azure-firewall-basic/">Exploring – Azure Firewall Basic (wedoAzure)</a></h2>
         <p class="published">Published: Wed, 15 Mar 2023 21:18:00 UTC</p>
         <p>Anyone who follows this blog knows that Azure Firewall is a key resource for me in successful Azure deployments</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://luke.geek.nz/azure/create-azure-bastion-with-shareable-link-support-with-powershell/">Create Azure Bastion with Shareable Link support with PowerShell (luke.geek.nz)</a></h2>
-        <p class="published">Published: Thu, 16 Mar 2023 00:00:00 UTC+13:00</p>
-        <p>Azure Bastion is a service you deploy that lets you connect to a virtual machine using your browser and the Azure portal or via the native SSH or RDP client installed on your local computer.
-Overview
-
-The Azure Bastion service is a fully platform-managed PaaS service you provision inside your virtual network</p>
     </div>
     <hr>
     
@@ -1475,17 +1536,6 @@ The post Why you should start a Newsletter</p>
         <h2><a target="_blank" href="https://www.youtube.com/watch?v=enlHnWNk8X8">Dual Azure Firewall to handle Public IP On-Premises via Forced Tunnel (Adam Stuart)</a></h2>
         <p class="published">Published: Mon, 13 Mar 2023 15:59:46 UTC</p>
         <p></p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://luke.geek.nz/azure/azure-budget-filters-a-key-tool-for-effective-cloud-cost-management/">Azure Budget Filters: A Key Tool for Effective Cloud Cost Management (luke.geek.nz)</a></h2>
-        <p class="published">Published: Mon, 13 Mar 2023 00:00:00 UTC+13:00</p>
-        <p>Azure Budgets are a vital tool that can be used to keep on top of your Cloud financial management (FinOps) Microsoft Azure platform potential and actual costs.
-The most effective Azure Budgets - are the ones that you use!
-
-
-In the realm of Cost Management, budgets play a pivotal role in facilitating the planning and implementation of organizational accountability</p>
     </div>
     <hr>
     
@@ -1632,13 +1682,6 @@ https://github.com/jwrightazure/lab/tree/master/VWAN-InternetAccess-Spoke-CSR</p
         <h2><a target="_blank" href="https://www.cloudinspired.com/azure-site-recovery-step-by-step/?utm_source=rss&utm_medium=rss&utm_campaign=azure-site-recovery-step-by-step">Azure Site Recovery Step by Step (CloudInspired.com)</a></h2>
         <p class="published">Published: Fri, 13 Jan 2023 12:02:19 UTC</p>
         <p>Azure Site Recovery Step by Step for disaster recovery and replicating and failing over a Virtual Machine from Azure UK South region to North Europe Region</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://blog.cloudtrooper.net/2023/01/10/filtering-aks-egress-traffic-with-virtual-wan/">Filtering AKS egress traffic with Virtual WAN (Cloudtrooper)</a></h2>
-        <p class="published">Published: Tue, 10 Jan 2023 21:53:44 UTC</p>
-        <p>If you are reading my blog you probably know what Virtual WAN and Azure Kubernetes Service are</p>
     </div>
     <hr>
     
@@ -2404,13 +2447,6 @@ capabilities</p>
         <h2><a target="_blank" href="https://azurealan.ie/2021/09/06/autoscale-managed-disk-performance-tiers-without-downtime/">Autoscaling Managed Disk Performance Tiers without downtime ()</a></h2>
         <p class="published">Published: Mon, 06 Sep 2021 20:15:27 UTC</p>
         <p>In the past week, Microsoft have released a new feature into general availability that allows you to change the performance tier of managed disks without any downtime to the virtual machine</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://aidanfinn.com/?p=22429">An IT Person On A Weight Loss Journey (Aidan Finn, IT Pro)</a></h2>
-        <p class="published">Published: Mon, 06 Sep 2021 15:03:27 UTC</p>
-        <p>In this post, I’m going to share a little about my weight loss journey – I’m an IT pro and the sedentary lifestyle isn’t exactly great for staying trim! Let’s go back a few years</p>
     </div>
     <hr>
     
