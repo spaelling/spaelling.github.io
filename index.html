@@ -23,7 +23,7 @@
 		integrity="sha384-L6OqL9pRWyyFU3+/bjdSri+iIphTN/bvYyM37tICVyOJkWZLpP2vGn6VUEXgzg6h" crossorigin="anonymous">
 	</script>
 	<!-- <script src="assets/js/unpkg.com_htmx.org@1.9.2_dist_htmx.min.js"> -->
-</script>
+	</script>
 </head>
 
 <body class="is-preload">
@@ -459,48 +459,6 @@
 								alt="" />
 						</p>
 						</br></br></br>
-
-						<!-- hx-trigger="load, click" makes sure that api gets called on page load AND on click  !-->
-						<!-- <div hx-ext="client-side-templates">
-							<button
-							   type="button"
-							   hx-trigger="load, click"
-							   hx-get="./assets/data/blog_sources.json"
-							   nunjucks-template="gistlist"
-							   hx-target="#list"
-							   hx-swap="innerHTML"
-							>Reload</button>
-						  
-							<script id="gistlist" type="nunjucks">
-							  {% for gist in gists %}
-								<li>
-								  <a href="{{gist.url}}">{{gist.title}}</a><br>
-								</li>
-							  {% endfor %}
-							</script>
-						  
-							<ul id="list"></ul>
-						  </div> -->
-
-						  <!-- https://raw.githubusercontent.com/spaelling/spaelling.github.io/master/assets/data/blog_sources.json -->
-
-						<div hx-ext="client-side-templates"
-							   hx-trigger="load"
-							   hx-get="./assets/data/blog_sources.json" 
-							   nunjucks-template="gistlist"
-							   hx-target="#list"
-							   hx-swap="innerHTML">
-						  
-							<script id="gistlist" type="nunjucks">
-							  {% for gist in gists %}
-								<li>
-								  <a href="{{gist.url}}" target="_blank" class="special">{{gist.title}}</a>
-								</li>
-							  {% endfor %}
-							</script>
-						  
-							<ul id="list"></ul>
-						  </div>						  
 
 						<ul align="left">
 							<li><a href="https://www.youtube.com/@NTFAQGuy" target="_blank" class="special">John
