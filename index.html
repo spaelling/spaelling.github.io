@@ -23,6 +23,14 @@
 		integrity="sha384-L6OqL9pRWyyFU3+/bjdSri+iIphTN/bvYyM37tICVyOJkWZLpP2vGn6VUEXgzg6h" crossorigin="anonymous">
 	</script>
 	<!-- <script src="assets/js/unpkg.com_htmx.org@1.9.2_dist_htmx.min.js"> -->
+	<script>
+		htmx.logger = function (elt, event, data) {
+			if (console) {
+				console.log(event, elt, data);
+			}
+		}
+		// for debugging
+		htmx.logAll();
 	</script>
 </head>
 
@@ -46,7 +54,7 @@
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="#about_me">About me</a></li>
-					<li><a href="#credentials">My credentials</a></li>
+					<li><a href="#credentials">My licenses & certifications</a></li>
 					<li><a href="#examples">Example work</a></li>
 					<li><a href="#customers">My Customers</a></li>
 					<li><a href="#community_contributions">My community contributions</a></li>
@@ -71,6 +79,27 @@
 
 		<!-- Wrapper -->
 		<section id="wrapper">
+
+			<!-- still need to write ugly javascript
+			<div hx-get="assets/data/blog_sources.json" hx-trigger="load delay:1s" visible="false">
+			</div>
+			<script type="text/javascript">
+				document.addEventListener('htmx:afterOnLoad', function (event) {
+					if (event.detail.xhr.responseURL.endsWith('/blog_sources.json')) {
+						var data = JSON.parse(event.detail.xhr.responseText);
+						var list = document.getElementById('list');
+						data.forEach(function (item) {
+							var li = document.createElement('li');
+							var a = document.createElement('a');
+							a.href = item.url;
+							a.innerText = item.title;
+							li.appendChild(a);
+							list.appendChild(li);
+						});
+					}
+				});
+			</script>
+			<ul id="list"></ul> -->
 
 			<!-- about -->
 			<section id="about_me" class="wrapper spotlight style1">
@@ -113,7 +142,7 @@
 			<section id="credentials" class="wrapper spotlight style3">
 				<div class="inner">
 					<div class="content" align="left">
-						<h2 class="major">Certifications</h2>
+						<h2 class="major">Licenses & certifications</h2>
 						<table>
 							<tr>
 
@@ -205,6 +234,27 @@
 									</a></td>
 							</tr>														 -->
 						</table>
+						<h2 class="major">Training</h2>
+						<table>
+							<tr>
+								<td> <a href="https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/become-a-microsoft-defender-for-cloud-ninja/ba-p/1608761"
+										target="_blank">
+										<img class="badges"
+											src="images/defender-cloud-ninja.png" />
+									</a></td>
+							</tr>
+							<!-- <tr>
+								<td> <a href="xxx" target="_blank">
+										<img src="images/" width="300px" height="300px" />
+									</a></td>
+								<td> <a href="xxx" target="_blank">
+										<img src="images/" width="300px" height="300px" />
+									</a></td>
+								<td> <a href="xxx" target="_blank">
+										<img src="images/" width="300px" height="300px" />
+									</a></td>
+							</tr>														 -->
+						</table>						
 					</div>
 				</div>
 			</section>
@@ -327,12 +377,16 @@
 					<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
 					<div class="content">
 						<h2 align="left" class="major">My community contributions</h2>
-						<p align="left">I have maintained a blog since 2013. These days I write about Azure and PowerShell</p>
+						<p align="left">I have maintained a blog since 2013. These days I write about Azure and
+							PowerShell</p>
 						<a align="left" href="https://blog.spaelling.xyz" target="_blank" class="special">Visit my
 							blog</a>
-						<p align="left">I have many repositories on Github, most of them are forever work in progress. Below are listed the ones worth checking out (pun intended)</p>
-						<a align="left" href="https://github.com/spaelling/linkedin-cv-generator" target="_blank" class="special">LinkedIn CV generator</a>
-						<a align="left" href="https://github.com/spaelling/spaelling.github.io" target="_blank" class="special">My Github Pages (this site)</a>
+						<p align="left">I have many repositories on Github, most of them are forever work in progress.
+							Below are listed the ones worth checking out (pun intended)</p>
+						<a align="left" href="https://github.com/spaelling/linkedin-cv-generator" target="_blank"
+							class="special">LinkedIn CV generator</a>
+						<a align="left" href="https://github.com/spaelling/spaelling.github.io" target="_blank"
+							class="special">My Github Pages (this site)</a>
 						<p align="left">
 							I have written several articles on LinkedIn:<br /><br />
 							<a href="https://www.linkedin.com/pulse/azure-cloudflare-tunnels-win-anders-sp%C3%A6lling"
