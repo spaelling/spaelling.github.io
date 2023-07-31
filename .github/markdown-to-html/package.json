@@ -1,0 +1,29 @@
+{
+  "name": "spaelling.github.io",
+  "version": "1.0.0",
+  "description": "Converts markdown to html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spaelling/spaelling.github.io.git"
+  },
+  "author": "Anders Spælling, spaelling@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spaelling/spaelling.github.io/issues"
+  },
+  "homepage": "https://github.com/spaelling/spaelling.github.io#readme",
+  "dependencies": {
+    "consolidate": "^1.0.1",
+    "gulp": "^4.0.2",
+    "gulp-front-matter": "^1.3.0",
+    "gulp-layout": "^0.0.4",
+    "gulp-remarkable": "^2.1.0",
+    "jade": "^1.11.0",
+    "gulp-cli": "^2.3.0",
+    "yargs": "^17.7.2"
+  }
+}
