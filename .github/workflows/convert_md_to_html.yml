@@ -16,15 +16,15 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
       - name: Install dependencies
         run: |
           npm ci
           npx gulp 'Convert Markdown to HTML' --input_dir '../../oni/*.md' --output_dir '../../oni'
-      # - name: Commit and push if it changed
-      #   run: |
-      #     git config --local user.email "action@github.com"
-      #     git config --local user.name "GitHub Action"
-      #     git add .
-      #     git diff --quiet && git diff --staged --quiet || git commit -m 'Converted markdown to html'
-      #     git push
+      - name: Commit and push if it changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git diff --quiet && git diff --staged --quiet || git commit -m 'Converted markdown to html'
+          git push
