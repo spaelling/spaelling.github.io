@@ -2,6 +2,31 @@
 
 Oxygen Not Included is my all time favorite game. This is just a collection of builds and other stuff.
 
+- [Oxygen Not Included](#oxygen-not-included)
+  - [Build Considerations (WiP)](#build-considerations-wip)
+    - [Heat](#heat)
+  - [Resources](#resources)
+    - [Calculators](#calculators)
+    - [Stable builds](#stable-builds)
+      - [Drecko](#drecko)
+      - [Hatch](#hatch)
+      - [Pip](#pip)
+      - [Slickster](#slickster)
+    - [Tamers](#tamers)
+    - [Oxygen Makers](#oxygen-makers)
+    - [Petroleum Boilers](#petroleum-boilers)
+    - [Sour Gas Boilers](#sour-gas-boilers)
+    - [Clay Factory](#clay-factory)
+    - [Reactors](#reactors)
+    - [Theory Crafting](#theory-crafting)
+    - [My Builds](#my-builds)
+    - [Rockets](#rockets)
+    - [Resin](#resin)
+    - [Farm](#farm)
+    - [Other](#other)
+    - [My Builds](#my-builds-1)
+      - [Petroleum Boiler](#petroleum-boiler)
+
 ## Build Considerations (WiP)
 
 Whenever I build something, from a complex build like a sour gas boiler to something simple like plotting down a natural gas generator, there are lots of things to consider.
@@ -102,3 +127,24 @@ Below are various builds and other cool resources. Generally in order of most fa
 ### Other
 
 - [10kg/s magma pump](https://www.reddit.com/r/Oxygennotincluded/comments/u0fssd/10kgs_magma_pump/)
+
+### My Builds
+
+#### Petroleum Boiler
+
+I designed my own petroleum boiler. The petroleum boiler part is taken from [Heart of a Petroleum Boiler](https://www.youtube.com/watch?v=csvObrEPtzg), and then I exploit that small amounts of magma will solidify into debris in a mesh tile and spew out diagonally. I ends up in the mechanized airlock that when closed will transfer heat, and when open it is a vacuum and does not transfer heat.
+This is essentially how I manage the heat injection into the small petroleum pocket.
+
+I use a small portion of the classical petroleum boiler to preheat the crude oil, and cool down the petroleum so that the liquid pump does not overheat.
+
+To extract residual heat I use a normal steam chamber. Notice that the petroleum pipe exits at the coldest spot, next to the steam turbine exhaust.
+
+![1](../images/oni/petboiler01/pb01.png)
+
+Piping:
+
+![2](../images/oni/petboiler01/pb02.png)
+
+Automation:
+
+![3](../images/oni/petboiler01/pb03.png)
