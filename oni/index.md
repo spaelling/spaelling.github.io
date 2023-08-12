@@ -55,6 +55,7 @@ Below are various builds and other cool resources. Generally in order of most fa
 
 ### Stable builds
 
+- [Infinity Ranch](https://www.reddit.com/r/Oxygennotincluded/comments/15opl7g/the_infinity_ranch/)
 - [Simple power-saving incubator automation design](https://www.reddit.com/r/Oxygennotincluded/comments/k4fy1k/simple_powersaving_incubator_automation_design/)
 
 #### Drecko
