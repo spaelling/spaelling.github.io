@@ -12,6 +12,107 @@
 <body>
     
     <div class="item">
+        <h2><a target="_blank" href="https://luke.geek.nz/azure/Empowering-Resilience-with-Azure-backup-services/">Empowering Resilience with Azure backup services (luke.geek.nz)</a></h2>
+        <p class="published">Published: Tue, 05 Sep 2023 23:00:00 UTC+12:00</p>
+        <p>This article is part of Azure Back to School - 2023 event! Make sure to check out the amazing content, created from the community!
+
+Along with the basics of the Azure Backup solutions, particularly on Virtual Machines running on Microsoft Azure, there have been a lot of changes in the last year, including Immutable vaults, enhanced policies, intelligence tiering, and cross-region restore.
+Introduction
+Let us start with the basics with a user story; what do we need to achieve:
+
+“As a Cloud Infrastructure Administrator at Contoso, I want to implement an automated backup solution for virtual machines (Windows and Linux) hosted in Microsoft Azure,
+So that I can ensure data reliability, disaster recovery, and compliance with minimal manual intervention.”
+
+With some assumptions around further requirements, we can jump into solutions using native Microsoft Azure services to fulfil the Cloud Administrator’s need.
+It is worth mentioning, especially around disaster recovery, that there is a lot more you can (and should do) do around mission-critical Azure architecture, but for this article, we will focus primarily on the data loss portion of disaster recovery, in relation to Azure Backup services.
+
+
+
+Requirement
+Azure Service(s) Used
+
+
+
+
+Specific (S): Backup virtual machines in Azure
+Azure Backup, Azure Site Recovery (ASR)
+
+
+Measurable (M):
+ 
+
+
+- Achieve 99% backup success rate
+Azure Backup, Azure Monitor
+
+
+- Define and meet RTO (recovery time objective) for critical VMs
+Azure Backup, Azure Site Recovery (ASR)
+
+
+- Monitor and optimise storage consumption
+Azure Monitor, Microsoft Cost Management
+
+
+Achievable (A):
+ 
+
+
+- Select and configure Azure-native backup solution
+Azure Backup
+
+
+- Configure Azure permissions and access controls
+Azure Role-Based Access Control (RBAC)
+
+
+- Define backup schedules and retention policies
+Azure Backup, Azure Policy
+
+
+Relevant (R):
+ 
+
+
+- Align with Azure best practices
+Azure Well-Architected Framework, Azure Advisor
+
+
+- Comply with data protection regulations
+Azure Compliance Center, Azure Policy
+
+
+- Support disaster recovery and business continuity
+Azure Site Recovery (ASR)
+
+
+Time-bound (T):
+ 
+
+
+- Implement within the next two Azure sprint cycles
+Azure DevOps - Boards
+
+
+- Regular progress reviews during sprint planning
+Azure DevOps - Boards
+
+
+
+
+
+
+Definition of Done (DoD):
+ 
+
+
+
+
+1</p>
+    </div>
+    <hr>
+    
+    <div class="item">
         <h2><a target="_blank" href="https://www.youtube.com/watch?v=OHs1txVKPHw">Azure Arc-Enabled Servers Walkthrough (John Savill's Technical Training)</a></h2>
         <p class="published">Published: Mon, 04 Sep 2023 12:12:44 UTC</p>
         <p>A look at what is involved in Arc-enabling your server operating systems and what it enables.
@@ -92,6 +193,13 @@ The post How to Target Specific Tenants with Conditional Access appeared first o
         <h2><a target="_blank" href="https://thomasthornton.cloud/2023/09/01/configurations-i-recommend-you-setup-to-deploy-your-terraform-into-azure-at-scale-using-github-actions/">Configurations I recommend you setup to deploy your Terraform into Azure at scale using GitHub Actions (Thomas Thornton – Microsoft Azure MVP – HashiCorp Ambassador)</a></h2>
         <p class="published">Published: Fri, 01 Sep 2023 09:14:39 UTC</p>
         <p>This blog post delves into the world of Terraform deployments in Microsoft Azure and explores how GitHub Actions can be harnessed to streamline the process, particularly when dealing with larger-scale deployments across various terraform resources, components and environments</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://wmatthyssen.com/2023/09/01/azure-arc-set-up-the-scvmm-private-cloud-prerequisite-for-azure-arc-enabled-scvmm-onboarding/">Azure Arc: Set up the SCVMM private cloud prerequisite for Azure Arc-enabled SCVMM onboarding (Wim Matthyssen)</a></h2>
+        <p class="published">Published: Fri, 01 Sep 2023 08:23:58 UTC</p>
+        <p>In this blog post, you will discover how to set up a private cloud on your SCVMM management server, aContinue Reading</p>
     </div>
     <hr>
     
@@ -270,6 +378,14 @@ The post Listed in the Feedspot 100 Best Microsoft Azure Blogs and Websites 2023
         <p class="published">Published: Thu, 24 Aug 2023 05:40:55 UTC</p>
         <p>Learn how to when and how to use the strictly enforce location policies setting in Conditional Access.
 The post How to use Strictly Enforce Location Policies in Conditional Access appeared first on Our Cloud Network.</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/microsoft-and-accenture-partner-to-tackle-methane-emissions-with-ai-technology/">Microsoft and Accenture partner to tackle methane emissions with AI technology (Azure Blog)</a></h2>
+        <p class="published">Published: Wed, 23 Aug 2023 15:00:00 UTC</p>
+        <p>Microsoft’s focus on sustainability-related efforts forms the backdrop for the topic tackled in this blogpost: our partnership with Accenture on the application of AI technologies toward solving the challenging problem of methane emissions detection, quantification, and remediation in the oil and gas industry.
+The post Microsoft and Accenture partner to tackle methane emissions with AI technology appeared first on Azure Blog.</p>
     </div>
     <hr>
     
@@ -773,14 +889,6 @@ The post Always learning, always adapting: Unpacking Azure’s continuous cybers
     <hr>
     
     <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/microsoft-responsible-ai-practices-lead-the-way-in-shaping-development-and-impact/">Microsoft responsible AI practices: Lead the way in shaping development and impact (Azure Blog)</a></h2>
-        <p class="published">Published: Thu, 27 Jul 2023 15:00:00 UTC</p>
-        <p>Microsoft's commitment to responsible AI is not only reflected in our products and services but in an array of tools and informational events available to developers.
-The post Microsoft responsible AI practices: Lead the way in shaping development and impact appeared first on Azure Blog.</p>
-    </div>
-    <hr>
-    
-    <div class="item">
         <h2><a target="_blank" href="https://luke.geek.nz/azure/Entra-ID-login-to-a-CIS-Hardened-Linux-Azure-Virtual-Machine/">Entra ID login to a CIS Hardened Linux Azure Virtual Machine (luke.geek.nz)</a></h2>
         <p class="published">Published: Thu, 27 Jul 2023 23:00:00 UTC+12:00</p>
         <p>Currently, CIS (Center for Internet Security) Azure Marketplace images, do not support being Entra ID (Azure Active Directory) Joined.
@@ -944,13 +1052,6 @@ The post What is Microsoft Entra Global Secure Access? appeared first on msandbu
     <hr>
     
     <div class="item">
-        <h2><a target="_blank" href="https://wmatthyssen.com/2023/07/11/create-an-azure-storage-account-to-host-a-static-website-within-a-specified-subscription-using-an-azure-powershell-script/">Create an Azure storage account to host a static website within a specified subscription using an Azure PowerShell script (Wim Matthyssen)</a></h2>
-        <p class="published">Published: Tue, 11 Jul 2023 10:38:21 UTC</p>
-        <p>This blog post will demonstrate how to use an Azure PowerShell script to create an Azure storage account to host aContinue Reading</p>
-    </div>
-    <hr>
-    
-    <div class="item">
         <h2><a target="_blank" href="https://www.thomasmaurer.ch/2023/07/listed-in-the-whizlabs-top-microsoft-azure-bloggers-to-follow-in-2023/">Listed in the Whizlabs Top Microsoft Azure Bloggers to Follow in 2023 (Thomas Maurer)</a></h2>
         <p class="published">Published: Mon, 10 Jul 2023 13:22:51 UTC</p>
         <p>I’m thrilled to share some amazing news with you all: I have been selected as one of the Whizlabs Top Microsoft Azure Bloggers to Follow in 2023! This is a huge honor for me, as I have been blogging about Azure for multiple years now, and I love sharing my insights, tips, and tricks with …
@@ -1056,25 +1157,6 @@ The post Azure AD – Why use Cloud-Only Administrative/normal accounts and how 
         <h2><a target="_blank" href="https://dirteam.com/sander/2023/07/04/on-premises-identity-related-updates-and-fixes-for-june-2023/">On-premises Identity-related updates and fixes for June 2023 (The DirTeam.com / ActiveDir.org Weblogs)</a></h2>
         <p class="published">Published: Tue, 04 Jul 2023 10:32:13 UTC</p>
         <p>Even though Microsoft’s Identity focus moves towards the cloud, Windows Server 2016, Windows Server 2019 and Windows Server 2022 still receive updates to improve the experiences and security of Microsoft’s on-premises powerhouses</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://luke.geek.nz/azure/Bring-Your-Data-to-Life-with-Azure-OpenAI/">Bring Your Data to Life with Azure OpenAI (luke.geek.nz)</a></h2>
-        <p class="published">Published: Tue, 04 Jul 2023 14:15:00 UTC+12:00</p>
-        <p>Today, we will look at using Azure OpenAI and ‘Bring Your Data’ to allow recent documentation to be referenced and bring life (and relevance) to your data.
-
-The example we are going to use today is the Microsoft Learn documentation for Microsoft Azure.
-Our scenario is this:
-
-We would like to use ChatGPT functionality to query up-to-date information on Microsoft Azure; in this example, we will look for information on Azure Elastic SAN (which was added in late 2022).
-
-When querying ChatGPT for Azure Elastic SAN, we get the following:
-
-Just like the prompt states, ChatGPT only has data up to September 2021 and isn’t aware of Elastic SAN (or any other changes/updates or new (or retired) services after this date).
-So let us use the Azure OpenAI and bring in outside data (ground data), in this case, the Azure document library, to overlay on top of the GPT models, giving the illusion the model is aware of the data.
-To do this, we will leverage native ‘Bring Your Own Data’ functionality, now in Azure OpenAI - this is in Public Preview as of 04/07/2023.
-To be clear, I don’t expect you to start downloading from GitHub; this is just an example I have used to add your data</p>
     </div>
     <hr>
     
