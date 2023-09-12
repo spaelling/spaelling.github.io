@@ -24,26 +24,31 @@ for feed_url in feeds:
     feed = feedparser.parse(feed_url)
     feed_title = feed.feed.title
     for entry in feed.entries:
-        # Check if 'GMT' is in the date string
-        if 'GMT' in entry.published:
-            # Replace 'GMT' with '+0000'
-            entry.published = entry.published.replace('GMT', '+0000')
+        # if one of the entries fail then just continue
+        try:
+            # Check if 'GMT' is in the date string
+            if 'GMT' in entry.published:
+                # Replace 'GMT' with '+0000'
+                entry.published = entry.published.replace('GMT', '+0000')
 
-        # Parse the publication date string into a datetime object
-        published_datetime = try_strptime(entry.published, ['%a, %d %b %Y %H:%M:%S %z','%Y-%m-%dT%H:%M:%S%z','%Y-%m-%dT%H:%M:%S.%f%z'])
-        # published_datetime = datetime.strptime(entry.published, '%a, %d %b %Y %H:%M:%S %z')
+            # Parse the publication date string into a datetime object
+            published_datetime = try_strptime(entry.published, ['%a, %d %b %Y %H:%M:%S %z','%Y-%m-%dT%H:%M:%S%z','%Y-%m-%dT%H:%M:%S.%f%z'])
+            # published_datetime = datetime.strptime(entry.published, '%a, %d %b %Y %H:%M:%S %z')
 
-        summary = entry.summary if 'summary' in entry else ''
-        soup = BeautifulSoup(summary, "html.parser")
-        summary = soup.get_text()  # Convert HTML escape characters to regular characters and remove HTML tags
-        summary = summary.split('. ')[0]  # Split by '\n'
-        news_items.append({
-            'title': entry.title,
-            'link': entry.link,
-            'published': published_datetime,
-            'summary': summary,
-            'feed_title': feed_title
-        })
+            summary = entry.summary if 'summary' in entry else ''
+            soup = BeautifulSoup(summary, "html.parser")
+            summary = soup.get_text()  # Convert HTML escape characters to regular characters and remove HTML tags
+            summary = summary.split('. ')[0]  # Split by '\n'
+            news_items.append({
+                'title': entry.title,
+                'link': entry.link,
+                'published': published_datetime,
+                'summary': summary,
+                'feed_title': feed_title
+            })
+        except:
+            # TODO: log the issue somewhere. just remember this runs every few hours
+            continue
 
 # Sort news items by publication date
 news_items.sort(key=lambda x: x['published'], reverse=True)
