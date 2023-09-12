@@ -21,8 +21,13 @@ def try_strptime(s, fmts=['%d-%b-%y','%m/%d/%Y']):
 # Fetch and parse RSS feeds
 news_items = []
 for feed_url in feeds:
-    feed = feedparser.parse(feed_url)
-    feed_title = feed.feed.title
+    try:
+        feed = feedparser.parse(feed_url)
+        feed_title = feed.feed.title
+    except:
+        # TODO: log the issue somewhere. just remember this runs every few hours
+        print("Failed to parse feed ", feed_url)
+        continue
     for entry in feed.entries:
         # if one of the entries fail then just continue
         try:
@@ -48,6 +53,7 @@ for feed_url in feeds:
             })
         except:
             # TODO: log the issue somewhere. just remember this runs every few hours
+            print("Failed to parse entry in feed ", feed_title)
             continue
 
 # Sort news items by publication date
