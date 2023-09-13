@@ -12,6 +12,50 @@
 <body>
     
     <div class="item">
+        <h2><a target="_blank" href="https://luke.geek.nz/azure/Get-Ahead-with-Self-Hosted-Agents-and-Container-Apps-Jobs/">Get Ahead with Self-Hosted Agents and Container Apps Jobs (luke.geek.nz)</a></h2>
+        <p class="published">Published: Tue, 12 Sep 2023 23:00:00 UTC+12:00</p>
+        <p>When considering build agents to use in Azure DevOps (or GitHub), there are 2 main options to consider:
+
+
+
+Agent type
+Description
+
+
+
+
+Microsoft-hosted agents
+Agents hosted and managed by Microsoft
+
+
+Self-hosted agents
+Agents that you configure and manage, hosted on your VMs
+
+
+
+Microsoft-hosted agents, can be used for most things, but there are times where you may need to talk to internal company resources, or security is a concern, which is when you would consider self-hosting the agent yourself.
+Here is a table that summarizes the pros and cons of self-hosted Azure DevOps agents and Microsoft-hosted agents:
+
+
+
+Agent Type
+Pros
+Cons
+
+
+
+
+Self-hosted
+More control over the environment, ability to install dependent software needed for builds and deployments, machine-level caches and configuration persist from run to run, which can boost speed.
+Maintenance and upgrades are not taken care of for you; you must manage the agent yourself.
+
+
+Microsoft-hosted
+Maintenance and upgrades are taken care of for you; each time you run a pipeline, you get a fresh virtual machine discarded after one use</p>
+    </div>
+    <hr>
+    
+    <div class="item">
         <h2><a target="_blank" href="https://msandbu.org/the-difference-between-bing-chat-bing-chat-enterprise-chatgpt-and-microsoft-copilot/">The difference between Bing Chat, Bing Chat Enterprise, ChatGPT and Microsoft Copilot (msandbu.org)</a></h2>
         <p class="published">Published: Tue, 12 Sep 2023 09:23:43 UTC</p>
         <p>The difference between Bing Chat, Bing Chat Enterprise, ChatGPT and Microsoft CopilotI have been getting a lot of questions lately about this topic in terms of the difference between these different services, so I decided to create a table to illustrate the difference</p>
@@ -1066,20 +1110,6 @@ Copying, the Log into the Completion pane of Azure OpenAI
 And using  the Prompt of:
 ----
 Summarize all the errors and warnings from above and sort by potential cause of the issues, with the most likely cause first</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://luke.geek.nz/azure/Access-denied-aztfexport/">Access denied on an Azure Virtual Machine when using aztfexport (luke.geek.nz)</a></h2>
-        <p class="published">Published: Sun, 09 Jul 2023 23:00:00 UTC+12:00</p>
-        <p>When attempting to use aztfexport, a tool designed to export currently deployed Azure resources into HashiCorp Configuration Language (HCL) for use with Terraform, you may get: Access denied.
-When using aztfexport, the first thing you need to do is make sure you have the Azure CLI installed, and run an:
-az login
-
-After logging in, you need to verify you are on the right subscription, by running:
-az account show
-
-If you are on the right subscription, you don’t need to do anything</p>
     </div>
     <hr>
     
