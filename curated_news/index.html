@@ -33,6 +33,7 @@
         <p>You may have a situation where you have implemented Private endpoints and the traffic from on-premises to those Private Endpoints, either doesn’t work, even though on-premises firewalls say otherwise, or is working, but doesn’t appear in the Azure Firewall.
 I had this recently with Azure Arc, where the endpoints failed to connect once a site-to-site VPN connection (which was working) was replaced with an expressroute connection, but going through the Azure Firewall logs, was unable to see any 443 traffic for Arc, hitting the Firewall even when the connection was working.
 
+
 Traffic flow: Onpremises – (ER Circuit) – ER gateway – Secured hub Azure Firewall – (Vnet Connection) – PE (Private Endpoint)
 
 The issue was related to how private endpoint traffic is routed differently.
@@ -228,14 +229,6 @@ The post 5 Great Tips for Admins Working With Microsoft Graph PowerShell appeare
         <h2><a target="_blank" href="https://www.youtube.com/watch?v=dnkK6UDdZ-A">Azure Virtual WAN Routing Intent summary routes (ExpressRoute Transit + AVS) (Adam Stuart)</a></h2>
         <p class="published">Published: Fri, 22 Sep 2023 06:41:43 UTC</p>
         <p>In this video we share another informal conversation, this time with Daniel Mauser from the US Advanced Networking Global Black Belt team at Microsoft</p>
-    </div>
-    <hr>
-    
-    <div class="item">
-        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/manage-your-big-data-needs-with-hdinsight-on-aks/">Manage your big data needs with HDInsight on AKS (Azure Blog)</a></h2>
-        <p class="published">Published: Thu, 21 Sep 2023 15:00:00 UTC</p>
-        <p>Today, we’re excited to announce the public preview of HDInsight on AKS, our cloud-native, open-source big data service, completely rearchitected on Azure Kubernetes Service infrastructure with two new workloads and numerous improvements across the stack. 
-The post Manage your big data needs with HDInsight on AKS appeared first on Azure Blog.</p>
     </div>
     <hr>
     
@@ -756,6 +749,13 @@ The post How to Setup Multi-Tenant Organisation in Microsoft 365 appeared first 
         <h2><a target="_blank" href="https://msandbu.org/the-curious-case-of-private-endpoint-and-dns/">The curious case of private endpoint and DNS (msandbu.org)</a></h2>
         <p class="published">Published: Mon, 28 Aug 2023 16:58:13 UTC</p>
         <p>A couple of weeks ago I was contacted to help figure out why DNS lookup was failing “sometimes” for services that were configured using private endpoints</p>
+    </div>
+    <hr>
+    
+    <div class="item">
+        <h2><a target="_blank" href="https://azure.microsoft.com/en-us/blog/upgrade-to-app-service-environment-v3-today-and-unlock-new-capabilities/">Upgrade to App Service Environment v3 today and unlock new capabilities (Azure Blog)</a></h2>
+        <p class="published">Published: Mon, 28 Aug 2023 16:00:00 UTC</p>
+        <p>With previous versions of Azure App Service Environment sunsetting at the end of August 2024, upgrading to version 3 is not only imperative, but a strategic move that unlocks many benefits for you and your organization</p>
     </div>
     <hr>
     
